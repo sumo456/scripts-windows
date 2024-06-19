@@ -10,7 +10,7 @@ def install_tqdm():
         print("Error al instalar tqdm:", e)
 
 def run_command(command):
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, universal_newlines=True)
     total_steps = 100  # Estimación del número de pasos para la barra de progreso
     with tqdm(total=total_steps, desc=command, ncols=100) as pbar:
         while True:
