@@ -1,6 +1,7 @@
 import subprocess
 import time
 import sys
+from tqdm import tqdm
 
 def install_tqdm():
     try:
@@ -9,25 +10,19 @@ def install_tqdm():
         print("Error al instalar tqdm:", e)
 
 def run_command(command):
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=1, universal_newlines=True)
     total_steps = 100  # Estimación del número de pasos para la barra de progreso
-    step_duration = 3  # Duración de cada paso en segundos (ajústala según tus necesidades)
-
-    for step in range(total_steps):
-        output = process.stdout.readline()
-        if output:
-            print(output.strip().decode('utf-8', errors='ignore'))
-        time.sleep(step_duration / total_steps)
-        if process.poll() is not None:
-            break
-    
-    # Leer el resto de la salida del proceso si no se ha terminado
-    while True:
-        output = process.stdout.readline()
-        if not output:
-            break
-        print(output.strip().decode('utf-8', errors='ignore'))
-
+    with tqdm(total=total_steps, desc=command, ncols=100) as pbar:
+        while True:
+            output = process.stdout.readline()
+            if process.poll() is not None and output == '':
+                break
+            if output:
+                tqdm.write(output.strip())
+                pbar.update(1)
+            time.sleep(0.1)  # Para hacer que la barra de progreso avance gradualmente
+        # Completa la barra de progreso si es necesario
+        pbar.update(total_steps - pbar.n)
     return process.returncode
 
 commands = [
