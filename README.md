@@ -10,7 +10,6 @@ Para instalar las bibliotecas requeridas, ejecuta el siguiente comando en tu ter
 
 pip install -r requirements.txt
 
-markdown
 
 
 Este comando instalará automáticamente las siguientes dependencias:
@@ -23,20 +22,18 @@ Si no tienes `pip` instalado, asegúrate de instalarlo primero. Puedes encontrar
 
 ## Uso de los Scripts
 
-### Script 1: PDF Merge Tool
+### Script 1: PDF Unificación
 
 Este script permite agregar varios archivos PDF y fusionarlos en uno solo.
 
 Para ejecutar el script, sigue estos pasos:
 
 1. Abre una terminal o símbolo del sistema.
-2. Navega al directorio donde se encuentra el script `pdf_merge_tool.py`.
+2. Navega al directorio donde se encuentra el script `PDFUnificacion.py`.
 3. Asegúrate de haber instalado las dependencias con el comando `pip install -r requirements.txt`.
 4. Ejecuta el script con el siguiente comando:
 
-python pdf_merge_tool.py
-
-markdown
+python PDFUnificacion.py
 
 
 5. Sigue las instrucciones en la ventana de la interfaz gráfica para agregar archivos PDF y fusionarlos.
@@ -48,13 +45,12 @@ Este script convierte archivos PDF seleccionados a documentos DOCX.
 Para ejecutar el script, sigue estos pasos:
 
 1. Abre una terminal o símbolo del sistema.
-2. Navega al directorio donde se encuentra el script `pdf_to_docx_converter.py`.
+2. Navega al directorio donde se encuentra el script `PDFtoWORD.py`.
 3. Asegúrate de haber instalado las dependencias con el comando `pip install -r requirements.txt`.
 4. Ejecuta el script con el siguiente comando:
 
-python pdf_to_docx_converter.py
+python PDFtoWORD.py
 
-css
 
 
 5. Sigue las instrucciones en la ventana de la interfaz gráfica para seleccionar los archivos PDF y c
