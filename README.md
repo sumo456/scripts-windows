@@ -53,4 +53,5 @@ python PDFtoWORD.py
 
 
 
-5. Sigue las instrucciones en la ventana de la interfaz gráfica para seleccionar los archivos PDF y c
+
+5. Sigue las instrucciones en la ventana de la interfaz gráfica para seleccionar los archivos PDF y convertirlos a DOCX.
